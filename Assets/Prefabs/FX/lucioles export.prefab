@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4957553119866940634}
   - component: {fileID: 4957553119866940635}
   m_Layer: 0
-  m_Name: lucioles 1
+  m_Name: lucioles export
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4957553119866940632}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -11, y: 13.82, z: 9.117063}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.46163, y: 0.46163, z: 0.46163}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
