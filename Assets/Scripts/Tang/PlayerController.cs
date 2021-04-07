@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    Animator animator = null;
+    
 
     [Header("Movement")]
     Vector2 inputMovement = Vector2.zero;
@@ -46,6 +48,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -60,6 +63,9 @@ public class PlayerController : MonoBehaviour
         right.Normalize();
 
         Vector3 movement = (forward * inputMovement.y + right * inputMovement.x) * moveSpeed;
+
+        animator.SetFloat("Speed", movement.magnitude);
+
         if(inputMovement != Vector2.zero)
         {
             lastDirection = movement;
