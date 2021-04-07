@@ -338,6 +338,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 51924d73-b72d-416a-a387-426a7f308bf7
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 422c5141-f45f-4809-9bf5-0a6b60d0ded4
+    m_ActionName: Player/Interract[/Keyboard/e,/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
