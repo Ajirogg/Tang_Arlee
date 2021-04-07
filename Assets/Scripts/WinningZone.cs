@@ -4,18 +4,7 @@ using UnityEngine;
 
 public class WinningZone : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-               
-    }
-
+    //Check winning condition in trigger zone
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     CharacterController characterController;
 
     Vector3 moveDirection = Vector3.zero;
+    //Last direction save (to keep looking the same point when stop moving)
     Vector3 lastDirection = Vector3.zero;
 
     [Space]
@@ -30,17 +31,17 @@ public class PlayerController : MonoBehaviour
     [Space]
     [Space]
     [SerializeField]
-    Transform cam;
+    Transform cam; // Camera transform
     [SerializeField]
-    Transform body;
+    Transform body; // 3D Model 
 
 
-    // Coffre loot
+    // Coffre loot (Maybe modify if visual add)
     private bool getFirstItem = false;
     private bool getSecondItem = false;
     private bool getThirdItem = false;
 
-    // Data for slide the slope
+    // Data to slide the slope
     Vector3 hitNormal = Vector3.up;
     bool isSliding = false;
     float slideFriction = 1.5f;
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
+        // Get forward and right vector of cam (movement in camera referential)
         Vector3 forward = cam.forward;
         forward.y = 0;
         Vector3 right = cam.right;
@@ -61,12 +62,13 @@ public class PlayerController : MonoBehaviour
         forward.Normalize();
         right.Normalize();
 
+        // recalculate the movement from camera referential)
         Vector3 movement = (forward * inputMovement.y + right * inputMovement.x) * moveSpeed;
 
         animator.SetFloat("Speed", movement.magnitude);
 
         
-
+        // Stock last direction to keep looking even if not moving
         if(inputMovement != Vector2.zero)
         {
             lastDirection = movement;
@@ -74,7 +76,8 @@ public class PlayerController : MonoBehaviour
 
         moveDirection = new Vector3(movement.x, moveDirection.y, movement.z);
 
-
+        // First part of sliding on slope 
+        // Need to rotate the player to match the slope angle and remove the forward input to force slide down with minimal controls 
         if (isSliding)
         {
             moveDirection.x += (1 - hitNormal.y) * hitNormal.x * slideFriction;
@@ -82,9 +85,9 @@ public class PlayerController : MonoBehaviour
         }
 
         body.transform.rotation = Quaternion.LookRotation(lastDirection);
-
         characterController.Move(moveDirection * Time.deltaTime);
 
+        // when touch the ground refill jump
         if (characterController.isGrounded)
         {
             animator.SetBool("Jump", false);
@@ -95,43 +98,51 @@ public class PlayerController : MonoBehaviour
         } 
     }
 
+    //apply the physics regularly (fixed deltatime)
     private void FixedUpdate()
     {
         moveDirection += (Physics.gravity * 0.1f);
         
     }
 
+    //Link to input action for movement
     public void GetMovementValues(InputAction.CallbackContext context)
     {
         inputMovement = context.ReadValue<Vector2>();
     }
 
+    //Link to input action for jump button
     public void Jump(InputAction.CallbackContext context)
     {
-
         if(context.performed && canJump)
         {
             animator.SetBool("Jump", true);
             animator.SetBool("IsLanding", false);
+     
+            // Useless here, usefull to add multi-jump
             if (!characterController.isGrounded)
                 --jumpLeft;
        
-                canJump = false;
+            // if(jumpLeft <= 0)
+            canJump = false;
 
             moveDirection.y = jumpForce;
             
         }
     }
 
-    public void Interract(InputAction.CallbackContext context)
+    //Link to input action for interact button
+    public void Interact(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            CheckIfChestInterract( Physics.OverlapBox(body.position + body.forward + body.up * 0.75f, new Vector3(0.375f, 0.5f, 0.375f)));
+            CheckIfChestInteract(Physics.OverlapBox(body.position + body.forward + body.up * 0.75f, new Vector3(0.375f, 0.5f, 0.375f)));
         }
     }
 
-    private void CheckIfChestInterract(Collider[] colliders)
+
+    // Verify if it's a chest non open and open it
+    private void CheckIfChestInteract(Collider[] colliders)
     {
         foreach(Collider collider in colliders)
         {
@@ -166,19 +177,24 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    //Check the angle of the floor hit
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        isSliding = !(Vector3.Angle(Vector3.up, hit.normal) <= characterController.slopeLimit);
+        hitNormal = hit.normal;
+    }
+
+
+
+    // Winning condition check
     public bool HasAllPartOfArmor()
     {
         return getFirstItem && getSecondItem && getThirdItem;
     }
 
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        isSliding = !(Vector3.Angle(Vector3.up, hit.normal) <= characterController.slopeLimit);
-        hitNormal = hit.normal;
-        // Debug.Log(Vector3.Angle(Vector3.up, hit.normal));
-    }
 
+    // VISUAL DEBUG for interaction zone
     void OnDrawGizmos()
     {
         // Draw a semitransparent blue cube at the transforms position

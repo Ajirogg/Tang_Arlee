@@ -4,21 +4,12 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-
+    //Part of armor
     public GameObject loot = null;
+
+    //Need to avoid re-openning
     public bool isOpen = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public GameObject OpenChest()
     {
@@ -26,6 +17,4 @@ public class Chest : MonoBehaviour
         isOpen = true;
         return loot;
     }
-
-
 }
