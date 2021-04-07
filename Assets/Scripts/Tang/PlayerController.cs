@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            CheckIfChestInterract( Physics.OverlapBox(body.position + body.forward, new Vector3(0.375f, 1f, 0.375f)));
+            CheckIfChestInterract( Physics.OverlapBox(body.position + body.forward + body.up * 0.75f, new Vector3(0.375f, 0.5f, 0.375f)));
         }
     }
 
@@ -170,6 +170,6 @@ public class PlayerController : MonoBehaviour
     {
         // Draw a semitransparent blue cube at the transforms position
         Gizmos.color = new Color(1, 0, 0, 0.5f);
-        Gizmos.DrawCube(body.position + body.forward, new Vector3(0.75f, 2f, 0.75f));
+        Gizmos.DrawCube(body.position + body.forward + body.up * 0.75f, new Vector3(0.75f, 1f, 0.75f));
     }
 }
