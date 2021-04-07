@@ -33,6 +33,11 @@ public class PlayerController : MonoBehaviour
     Transform body;
 
 
+    // Coffre loot
+    private bool getFirstItem = false;
+    private bool getSecondItem = false;
+    private bool getThirdItem = false;
+
     // Data for slide the slope
     Vector3 hitNormal = Vector3.up;
     bool isSliding = false;
@@ -114,18 +119,35 @@ public class PlayerController : MonoBehaviour
 
     private void CheckIfChestInterract(Collider[] colliders)
     {
-        Debug.Log(colliders.Length);
         foreach(Collider collider in colliders)
         {
-            Debug.Log(collider.gameObject.tag);
-
             if (collider.gameObject.CompareTag("Chest"))
             {
-                Debug.Log(collider.gameObject.GetComponent<Chest>().OpenChest().name);
-            } else
-            {
-                Debug.Log("I can't do anything with this...");
-            }
+                GameObject chest = collider.gameObject;
+                if (!chest.GetComponent<Chest>().isOpen)
+                {
+                    collider.gameObject.GetComponent<Chest>().OpenChest();
+
+                    if (getFirstItem)
+                    {
+                        if (getSecondItem)
+                        {
+                            getThirdItem = true;
+                        }
+                        else
+                        {
+                            getSecondItem = true;
+                        }
+                    }
+                    else
+                    {
+                        getFirstItem = true;
+                    }
+
+                    Debug.Log("1: " + getFirstItem + "  2: " + getSecondItem + "  3: " + getThirdItem);
+                }
+                
+            } 
         }
     }
 
