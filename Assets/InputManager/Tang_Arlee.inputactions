@@ -28,14 +28,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "JumpChange",
-                    "type": "Button",
-                    "id": "65bc82ba-1184-42ca-9d4c-14f0975aba1f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -201,17 +193,6 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "245b9399-4e50-4127-94a9-e854c3b68dc8",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "JumpChange",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
