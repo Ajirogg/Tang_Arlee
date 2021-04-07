@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     CharacterController characterController;
 
     Vector3 moveDirection = Vector3.zero;
+    Vector3 lastDirection = Vector3.zero;
 
     [Space]
     [Space]
@@ -54,6 +55,10 @@ public class PlayerController : MonoBehaviour
         right.Normalize();
 
         Vector3 movement = (forward * inputMovement.y + right * inputMovement.x) * moveSpeed;
+        if(inputMovement != Vector2.zero)
+        {
+            lastDirection = movement;
+        }
 
         moveDirection = new Vector3(movement.x, moveDirection.y, movement.z);
 
@@ -64,7 +69,7 @@ public class PlayerController : MonoBehaviour
             moveDirection.z += (1 - hitNormal.y) * hitNormal.z * slideFriction;
         }
 
-        body.transform.rotation = Quaternion.LookRotation(movement);
+        body.transform.rotation = Quaternion.LookRotation(lastDirection);
 
         characterController.Move(moveDirection * Time.deltaTime);
 
@@ -99,10 +104,44 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Interract(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            CheckIfChestInterract( Physics.OverlapBox(body.position + body.forward, new Vector3(0.375f, 1f, 0.375f)));
+        }
+    }
+
+    private void CheckIfChestInterract(Collider[] colliders)
+    {
+        Debug.Log(colliders.Length);
+        foreach(Collider collider in colliders)
+        {
+            Debug.Log(collider.gameObject.tag);
+
+            if (collider.gameObject.CompareTag("Chest"))
+            {
+                Debug.Log(collider.gameObject.GetComponent<Chest>().OpenChest().name);
+            } else
+            {
+                Debug.Log("I can't do anything with this...");
+            }
+        }
+    }
+
+
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         isSliding = !(Vector3.Angle(Vector3.up, hit.normal) <= characterController.slopeLimit);
         hitNormal = hit.normal;
         // Debug.Log(Vector3.Angle(Vector3.up, hit.normal));
+    }
+
+    void OnDrawGizmos()
+    {
+        // Draw a semitransparent blue cube at the transforms position
+        Gizmos.color = new Color(1, 0, 0, 0.5f);
+        Gizmos.DrawCube(body.position + body.forward, new Vector3(0.75f, 2f, 0.75f));
     }
 }
