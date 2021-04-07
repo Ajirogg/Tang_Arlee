@@ -66,6 +66,8 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("Speed", movement.magnitude);
 
+        
+
         if(inputMovement != Vector2.zero)
         {
             lastDirection = movement;
@@ -86,6 +88,8 @@ public class PlayerController : MonoBehaviour
 
         if (characterController.isGrounded)
         {
+            animator.SetBool("Jump", false);
+            animator.SetBool("IsLanding", true);
             moveDirection.y = 0;
             canJump = true;
             jumpLeft = maxJumpLeft;
@@ -95,6 +99,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         moveDirection += (Physics.gravity * 0.1f);
+        
     }
 
     public void GetMovementValues(InputAction.CallbackContext context)
@@ -104,14 +109,18 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
+
         if(context.performed && canJump)
         {
+            animator.SetBool("Jump", true);
+            animator.SetBool("IsLanding", false);
             if (!characterController.isGrounded)
                 --jumpLeft;
        
                 canJump = false;
 
             moveDirection.y = jumpForce;
+            
         }
     }
 
