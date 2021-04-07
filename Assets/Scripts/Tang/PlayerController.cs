@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(jumpLeft);
 
         Vector3 forward = cam.forward;
         forward.y = 0;
@@ -166,6 +165,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    public bool HasAllPartOfArmor()
+    {
+        return getFirstItem && getSecondItem && getThirdItem;
+    }
 
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
