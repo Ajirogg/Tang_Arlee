@@ -4,8 +4,8 @@ ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
-      74: -4861680082483160250
-    second: Run_Cycle
+      74: 2522142740280594024
+    second: Run_Cycle_try
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,8 +35,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Run_Cycle
-      takeName: Walk_Cycle
+      name: Run_Cycle_try
+      takeName: Run_Cycle_try
       internalID: 0
       firstFrame: 1
       lastFrame: 45
