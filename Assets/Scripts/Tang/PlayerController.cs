@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    Animator animator = null;
-    
 
     [Header("Movement")]
     Vector2 inputMovement = Vector2.zero;
@@ -35,11 +33,6 @@ public class PlayerController : MonoBehaviour
     Transform body;
 
 
-    // Coffre loot
-    private bool getFirstItem = false;
-    private bool getSecondItem = false;
-    private bool getThirdItem = false;
-
     // Data for slide the slope
     Vector3 hitNormal = Vector3.up;
     bool isSliding = false;
@@ -48,11 +41,11 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
+        Debug.Log(jumpLeft);
 
         Vector3 forward = cam.forward;
         forward.y = 0;
@@ -62,11 +55,6 @@ public class PlayerController : MonoBehaviour
         right.Normalize();
 
         Vector3 movement = (forward * inputMovement.y + right * inputMovement.x) * moveSpeed;
-
-        animator.SetFloat("Speed", movement.magnitude);
-
-        
-
         if(inputMovement != Vector2.zero)
         {
             lastDirection = movement;
@@ -87,8 +75,6 @@ public class PlayerController : MonoBehaviour
 
         if (characterController.isGrounded)
         {
-            animator.SetBool("Jump", false);
-            animator.SetBool("IsLanding", true);
             moveDirection.y = 0;
             canJump = true;
             jumpLeft = maxJumpLeft;
@@ -98,7 +84,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         moveDirection += (Physics.gravity * 0.1f);
-        
     }
 
     public void GetMovementValues(InputAction.CallbackContext context)
@@ -108,18 +93,14 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-
         if(context.performed && canJump)
         {
-            animator.SetBool("Jump", true);
-            animator.SetBool("IsLanding", false);
             if (!characterController.isGrounded)
                 --jumpLeft;
        
                 canJump = false;
 
             moveDirection.y = jumpForce;
-            
         }
     }
 
@@ -127,49 +108,27 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            CheckIfChestInterract( Physics.OverlapBox(body.position + body.forward + body.up * 0.75f, new Vector3(0.375f, 0.5f, 0.375f)));
+            CheckIfChestInterract( Physics.OverlapBox(body.position + body.forward, new Vector3(0.375f, 1f, 0.375f)));
         }
     }
 
     private void CheckIfChestInterract(Collider[] colliders)
     {
+        Debug.Log(colliders.Length);
         foreach(Collider collider in colliders)
         {
+            Debug.Log(collider.gameObject.tag);
+
             if (collider.gameObject.CompareTag("Chest"))
             {
-                GameObject chest = collider.gameObject;
-                if (!chest.GetComponent<Chest>().isOpen)
-                {
-                    collider.gameObject.GetComponent<Chest>().OpenChest();
-
-                    if (getFirstItem)
-                    {
-                        if (getSecondItem)
-                        {
-                            getThirdItem = true;
-                        }
-                        else
-                        {
-                            getSecondItem = true;
-                        }
-                    }
-                    else
-                    {
-                        getFirstItem = true;
-                    }
-
-                    Debug.Log("1: " + getFirstItem + "  2: " + getSecondItem + "  3: " + getThirdItem);
-                }
-                
-            } 
+                Debug.Log(collider.gameObject.GetComponent<Chest>().OpenChest().name);
+            } else
+            {
+                Debug.Log("I can't do anything with this...");
+            }
         }
     }
 
-
-    public bool HasAllPartOfArmor()
-    {
-        return getFirstItem && getSecondItem && getThirdItem;
-    }
 
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -183,6 +142,6 @@ public class PlayerController : MonoBehaviour
     {
         // Draw a semitransparent blue cube at the transforms position
         Gizmos.color = new Color(1, 0, 0, 0.5f);
-        Gizmos.DrawCube(body.position + body.forward + body.up * 0.75f, new Vector3(0.75f, 1f, 0.75f));
+        Gizmos.DrawCube(body.position + body.forward, new Vector3(0.75f, 2f, 0.75f));
     }
 }

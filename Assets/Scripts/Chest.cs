@@ -6,7 +6,7 @@ public class Chest : MonoBehaviour
 {
 
     public GameObject loot = null;
-    public bool isOpen = false;
+    private bool isOpen = false;
 
     // Start is called before the first frame update
     void Start()
