@@ -294,7 +294,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 2522142740280594024, guid: c53ad3d8e93cb214bb079e0ab8019d25,
+  m_Motion: {fileID: 1827226128182048838, guid: c53ad3d8e93cb214bb079e0ab8019d25,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -322,7 +322,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -8185627996874585842, guid: d57a3dddf79ff2241b9237d47212f9df,
+  m_Motion: {fileID: 1827226128182048838, guid: d57a3dddf79ff2241b9237d47212f9df,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -349,7 +349,7 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: 290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3253326797884917058}
-    m_Position: {x: 790, y: 80, z: 0}
+    m_Position: {x: 790, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6125341986012195107}
     m_Position: {x: 780, y: 270, z: 0}
@@ -622,7 +622,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -5556283194151007348, guid: 99db6ba91e89fbf458f7287d9db06880,
+  m_Motion: {fileID: 1827226128182048838, guid: 99db6ba91e89fbf458f7287d9db06880,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -828,7 +828,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 6182562188403337980, guid: 1fa03f8c0a28bbd40a7a849925daef0e,
+  m_Motion: {fileID: 1827226128182048838, guid: 1fa03f8c0a28bbd40a7a849925daef0e,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -858,7 +858,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -1640205165019039419, guid: 273c57d981d8b1b43860af9f387268a6,
+  m_Motion: {fileID: 1827226128182048838, guid: 273c57d981d8b1b43860af9f387268a6,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 

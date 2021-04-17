@@ -788,5 +788,57 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tang_Playable
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3733799045481840999, guid: dd9c25592b5444b45b80114d5b3adbc9,
+        type: 3}
+      propertyPath: characterController
+      value: 
+      objectReference: {fileID: 3733799046697458724}
+    - target: {fileID: 3733799045481840999, guid: dd9c25592b5444b45b80114d5b3adbc9,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 3733799046697458723}
+    - target: {fileID: 5246021675029411601, guid: dd9c25592b5444b45b80114d5b3adbc9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246021675029411601, guid: dd9c25592b5444b45b80114d5b3adbc9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.500002
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3733799045481841000, guid: dd9c25592b5444b45b80114d5b3adbc9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dd9c25592b5444b45b80114d5b3adbc9, type: 3}
+--- !u!1 &3733799046697458722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1859361962790897854, guid: dd9c25592b5444b45b80114d5b3adbc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3733799046697458721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3733799046697458723
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3733799046697458722}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d31cebbd079070940af01d4b8c4e5821, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!143 &3733799046697458724 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 3733799045481841001, guid: dd9c25592b5444b45b80114d5b3adbc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3733799046697458721}
+  m_PrefabAsset: {fileID: 0}

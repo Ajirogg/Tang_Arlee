@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
     Animator animator = null;
     
 
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     private void Update()
