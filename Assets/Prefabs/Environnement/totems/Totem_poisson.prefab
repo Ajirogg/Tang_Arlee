@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6333538626041364531}
   - component: {fileID: 2329855515812891811}
   - component: {fileID: 2973852534464358764}
+  - component: {fileID: 1892429568618686058}
   m_Layer: 0
   m_Name: Totem_Poisson
   m_TagString: Untagged
@@ -79,6 +80,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &1892429568618686058
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284715181608771746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2876382
+  m_Height: 1.6516283
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8258141, z: 0}
 --- !u!1 &1748150461762088579
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748150461762088579}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.221246, y: -3.5775409, z: -7.1110673}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6333538626041364531}

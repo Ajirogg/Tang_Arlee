@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6363948628501782331}
   - component: {fileID: 2669032798028948749}
   - component: {fileID: 8518213839373343220}
+  - component: {fileID: 7846059455130663456}
   m_Layer: 0
-  m_Name: mountain_05_low
+  m_Name: mountain_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7846059455130663456
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7929168062827736360}
+  m_Material: {fileID: 13400000, guid: f29facfac3f802b459f851aef23e887d, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8081521722483643420, guid: 8a09f09479c5de647ac5960d45358b55, type: 3}

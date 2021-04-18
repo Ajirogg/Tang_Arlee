@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5385698221641332093}
   - component: {fileID: 4028136991394451275}
   - component: {fileID: 7267217890999710642}
+  - component: {fileID: 3689895515499924778}
   m_Layer: 0
   m_Name: totem_baleine
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3689895515499924778
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000037206050768750}
+  m_Material: {fileID: 13400000, guid: f29facfac3f802b459f851aef23e887d, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2088628221116149614, guid: 429d668dd7f92bb4682192cfbfbde8e5, type: 3}

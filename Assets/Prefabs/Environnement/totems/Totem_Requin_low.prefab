@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8308397191914380511}
   - component: {fileID: 1015101600322545385}
   - component: {fileID: 6713412311990409744}
+  - component: {fileID: 4034742909761202851}
+  - component: {fileID: 4069848329048048972}
   m_Layer: 0
   m_Name: Totem_Requin_low
   m_TagString: Untagged
@@ -79,3 +81,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &4034742909761202851
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978169603554160332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1.6439515
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.82198435, z: 0}
+--- !u!136 &4069848329048048972
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978169603554160332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 1.25
+  m_Direction: 2
+  m_Center: {x: 0, y: 1.45, z: 0}
