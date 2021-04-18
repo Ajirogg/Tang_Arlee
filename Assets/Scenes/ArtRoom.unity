@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1164,47 +1164,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Terrain
-      objectReference: {fileID: 0}
-    - target: {fileID: 1732880839847710706, guid: a169691b759bb394aab108383b672fb4,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1732880839847710707, guid: a169691b759bb394aab108383b672fb4,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1732880839847710707, guid: a169691b759bb394aab108383b672fb4,
-        type: 3}
-      propertyPath: m_TerrainData
-      value: 
-      objectReference: {fileID: 15600000, guid: 5bc1cb9464b7f374baaede21cb761395,
-        type: 2}
-    - target: {fileID: 1732880839847710707, guid: a169691b759bb394aab108383b672fb4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1732880839847710708, guid: a169691b759bb394aab108383b672fb4,
-        type: 3}
-      propertyPath: m_ScaleInLightmap
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1732880839847710708, guid: a169691b759bb394aab108383b672fb4,
-        type: 3}
-      propertyPath: m_AllowAutoConnect
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1732880839847710708, guid: a169691b759bb394aab108383b672fb4,
-        type: 3}
-      propertyPath: m_MaterialTemplate
-      value: 
-      objectReference: {fileID: 2100000, guid: 97dfd1643c8474445ba81ef5dead63ef, type: 2}
-    - target: {fileID: 1732880839847710708, guid: a169691b759bb394aab108383b672fb4,
-        type: 3}
-      propertyPath: m_DrawTreesAndFoliage
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1732880839847710709, guid: a169691b759bb394aab108383b672fb4,
         type: 3}
