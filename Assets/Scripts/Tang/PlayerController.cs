@@ -137,6 +137,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
+            //Here will be the verification of which interaction needs to be trigger (to add interaction with Arlee for example)
             CheckIfChestInteract(Physics.OverlapBox(body.position + body.forward + body.up * 0.75f, new Vector3(0.375f, 0.5f, 0.375f)));
         }
     }
